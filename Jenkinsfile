@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'node' }
+    }
 
     stages {
         stage('Build') {
@@ -11,6 +13,11 @@ pipeline {
                   curl --version
                   jq --version
                 '''
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
             }
         }
         stage('Test') {
