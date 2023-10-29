@@ -1,7 +1,4 @@
 pipeline {
-    agent {
-        docker {
-            image 'node'
-        }
-    }
+    agent any
+    tools {docker "Docker"}
 }
