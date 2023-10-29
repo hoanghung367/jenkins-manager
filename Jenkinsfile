@@ -4,7 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh '''
+                  docker version
+                  docker info
+                  docker compose version
+                  curl --version
+                  jq --version
+                '''
             }
         }
         stage('Test') {
